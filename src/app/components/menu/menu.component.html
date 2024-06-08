@@ -1,0 +1,26 @@
+<div class="menu-area">
+    <div class="menu-header-area">
+        <img src="../../../assets/scannerITU_logo.png" alt="">
+        <div class="menu-header-text">ScannerITU</div>
+    </div>
+    <div class="menu-body-area">
+        <div class="menu-list-area">
+            <a class="menu-list-item" href="dersler">Derslerim</a>
+        </div>
+        <div class="menu-list-area">
+            <a class="menu-list-item" href="sinavlar">Sınavlarım</a>
+        </div>
+        <div class="menu-list-area">
+            <a class="menu-list-item" href="notlar">Notlandırmalar</a>
+        </div>
+        <div class="menu-list-area" *ngIf="checkAdmin">
+            <a class="menu-list-item" href="kullanici">Kullanıcı Ekle</a>
+        </div>
+        
+        <div class="logout-area">
+            <img src="" alt="">
+            <button class="logout-button" (click)="logOut()">Oturumu Kapat</button>
+        </div>
+    </div>
+</div>
+

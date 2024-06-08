@@ -1,0 +1,27 @@
+<div class="home-form-area">
+    <div class="menu-header-area">
+        <div class="menu-header">
+            <img src="../../../assets/magazacilikLogo.png" alt="">
+        <div class="menu-header-text">SERVİS DESTEK</div>
+        </div>
+        <div class="logut-area" (click)="logOut()">
+            <img src="../../../assets/SignOut.png" alt="">
+        </div>
+    </div>
+    
+    <div class="home-header"> Eşleştirilmiş Cihazı Kaldır</div>
+    <div class="home-input-area">
+        <div class="input-area">
+          <label for="">Sicil Numarası</label>
+          <input type="text" placeholder="Sicil No" [(ngModel)]="sicil" class="home-input"
+            [ngClass]="{'input-focus': sicil.length > 0 }">
+        </div>
+        <button (click)="removeDevice()" class="home-btn"
+          [ngClass]="{'button-focus': (password.length && sicil.length) > 0 }">Kaldır</button>
+      </div>
+</div>
+
+
+<div class="loading-screen" *ngIf="isLoading">
+    <app-loading-screen></app-loading-screen>
+  </div>

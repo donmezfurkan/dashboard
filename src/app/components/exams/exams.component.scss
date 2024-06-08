@@ -1,0 +1,169 @@
+.coursePage-body{
+    .list-course{
+        padding: 24px;
+        .list-course-header{
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+          
+            thead {
+              tr {
+                background-color: #f2f2f2;
+                color: #333;
+                text-align: left;
+                font-weight: bold;
+              }
+            }
+          
+            th, td {
+              padding: 12px 15px;
+              border: 1px solid #ddd;
+            }
+          
+            tbody {
+              tr {
+                &:nth-child(even) {
+                  background-color: #f9f9f9;
+                }
+                &:hover {
+                  background-color: #f1f1f1;
+                }
+              }
+            }
+          
+            .icon {
+              width: 24px;
+              height: 24px;
+              cursor: pointer;
+              margin-right: 10px;
+          
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          } 
+    }
+    .create-course {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 20px;
+      
+        h2 {
+          font-size: 24px;
+          margin-bottom: 20px;
+          color: #333;
+        }
+      
+        div {
+          margin-bottom: 15px;
+
+          /* Genel select stilini ayarla */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  -webkit-appearance: none; /* Safari ve Chrome'da tarayıcı varsayılan stilini kaldırır */
+  -moz-appearance: none; /* Firefox'ta tarayıcı varsayılan stilini kaldırır */
+  appearance: none; /* Tarayıcı varsayılan stilini kaldırır */
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #888;
+  }
+
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+/* Option stilini ayarla */
+option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Select kutusunun içine ok işareti ekle */
+select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path stroke="%23999" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 8l4 4 4-4"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 16px 12px;
+}
+
+/* Daha küçük ekranlarda select genişliğini ayarla */
+@media (max-width: 768px) {
+  select {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Daha küçük ekranlarda option stilini ayarla */
+@media (max-width: 768px) {
+  option {
+    font-size: 14px;
+  }
+}
+
+      
+          label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+          }
+      
+          input {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+        }
+        .error-area {
+            
+            .error-text {
+                color: red;
+                font-size: 14px;
+                margin-top: 10px;
+              }
+        }
+        
+      
+        button {
+          display: inline-block;
+          background-color: #a7a8aa;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+      
+          &:hover {
+            background-color: #062a54;
+          }
+        }
+      }
+      
+}

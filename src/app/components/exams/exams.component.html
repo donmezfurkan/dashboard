@@ -1,0 +1,49 @@
+<div class="coursePage-body">
+    <div class="create-course">
+        <h2>Yeni Sınav Ekle</h2>
+        <div>
+            <label for="courseName">Ders Adı:</label>
+            <select [(ngModel)]="selectedCourseId" (ngModelChange)="onOptionsSelected()">
+                <option *ngFor="let course of listCourses" [value]="course._id">{{course.courseName}}</option>
+            </select>
+
+        </div>
+        <div>
+            <label for="courseCode">Sınav Adı:</label>
+            <input type="text" id="courseCode" [(ngModel)]="examNameValue" name="courseCode" required>
+        </div>
+        <div>
+            <label for="courseCRN">Soru Sayısı:</label>
+            <input type="number" id="courseCRN" [(ngModel)]="examQnumValue" name="courseCRN" required>
+        </div>
+        <button (click)="createExam()">Sınav Ekle</button>
+        <div class="error-area">
+            <p class="error-text">{{errorMessage}}</p>
+        </div>
+    </div>
+    <div class="list-course">
+        <div class="list-course-header">Sorumlu olduğunuz Sınavlar</div>
+          <table class="table">
+            <tbody>
+              <ng-container *ngFor="let course of listCourses">
+                <tr>
+                  <td colspan="2">
+                    <strong>{{ course.courseName }}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <table>
+                      <tr>
+                        <ng-container *ngFor="let exam of course.exams">
+                              <td>{{exam}}</td>
+                        </ng-container>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+    </div>
+</div>

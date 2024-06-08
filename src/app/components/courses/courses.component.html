@@ -1,0 +1,46 @@
+<div class="coursePage-body">
+    <div class="list-course">
+        <div class="list-course-header">Sorumlu olduğunuz Dersler</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ders CRN</th>
+                    <th>Ders Kodu</th>
+                    <th>Ders Adı</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of listCourses; let i = index">
+                    <td>{{ course.courseCRN }}</td>
+                    <td>{{ course.courseCode }}</td>
+                    <td>{{ course.courseName }}</td>
+                    <td>
+                        <img src="../../../assets/edit.png" alt="Edit" (click)="editCourse(i, course._id, course.courseName, course.courseCRN, course.courseCode)" class="icon">
+                        <img src="../../../assets/delete.png" alt="Delete" (click)="deleteCourse(i, course._id, course.courseName)" class="icon">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="create-course">
+        <h2>Yeni Ders Ekle</h2>
+            <div>
+                <label for="courseName">Ders Adı:</label>
+                <input type="text" id="courseName" [(ngModel)]="courseNameValue" name="courseName" required>
+            </div>
+            <div>
+                <label for="courseCode">Ders Kodu:</label>
+                <input type="text" id="courseCode" [(ngModel)]="courseCodeValue" name="courseCode" required>
+            </div>
+            <div>
+                <label for="courseCRN">Ders CRN:</label>
+                <input type="number" id="courseCRN" [(ngModel)]="courseCRNValue" name="courseCRN" required>
+            </div>
+            <button (click)="createCourse()">Ders Ekle</button>
+            <div class="error-area">
+                <p class="error-text">{{errorMessage}}</p>
+            </div>
+    </div>
+</div>
+

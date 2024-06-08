@@ -1,0 +1,28 @@
+<div class="login-area">
+    <div class="login-header-area">
+        <!-- <img src="../../../assets/magazacilikLogo.png" alt=""> -->
+        <div class="login-header-text">ScannerITU</div>
+    </div>
+    <div class="login-body-area">
+        <div class="login-form-area">
+            <div class="login-input-area">
+                <div class="input-area">
+                  <label for="">Kullanıcı Adı</label>
+                  <input type="text" placeholder="Kullanıcı adı" [(ngModel)]="sicil" class="login-input"
+                    [ngClass]="{'input-focus': sicil.length > 0 }">
+                </div>
+                <div class="input-area">
+                  <label for="">Parola</label>
+                  <input type="password" placeholder="Parola" [ngClass]="{'input-focus': password.length > 0 }" [(ngModel)]="password" class="login-input">
+                </div>
+                <button (click)="login()" class="login-btn"
+                  [ngClass]="{'button-focus': (password.length && sicil.length) > 0 }">Giriş Yap</button>
+                <div class="error-area">{{error}}</div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="loading-screen" *ngIf="isLoading">
+  <app-loading-screen></app-loading-screen>
+</div>

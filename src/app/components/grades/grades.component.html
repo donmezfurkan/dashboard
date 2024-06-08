@@ -1,0 +1,48 @@
+<div class="create-course">
+    <h2>Görüntülemek İstediğin Sınavı Seç</h2>
+    <div>
+        <label for="courseName">Ders Adı:</label>
+        <select [(ngModel)]="selectedCourseId" (ngModelChange)="onOptionsSelected()">
+            <option *ngFor="let course of listCourses" [value]="course._id">{{course.courseName}}</option>
+        </select>
+    </div>
+    <div>
+        <label for="courseName">Sınav Adı:</label>
+        <select [(ngModel)]="selectedExamId" (ngModelChange)="onOptionsSelectedExam()">
+            <option *ngFor="let exam of listExams" [value]="exam._id">{{exam.examName}}</option>
+        </select>
+    </div>
+    <button (click)="showGrade()">Göster</button>
+    <div class="error-area">
+        <p class="error-text">{{errorMessage}}</p>
+    </div>
+</div>
+
+<table class="table" *ngIf="checkShowTable">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Öğrenci Numarası</th>
+                <ng-container *ngIf="studentGrades.length > 0">
+                  <th *ngFor="let question of [].constructor(numberOfExamQuestions); let i = index">Soru {{ i + 1 }}</th>
+                </ng-container>
+                <th>Toplam Puan</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentGrades">
+                <td>{{ student.studentId }}</td>
+                <ng-container *ngFor="let grade of student.scores">
+                    <td>{{ grade }}</td>
+                </ng-container>
+                <td>{{ student.totalGrades}}</td>
+            </tr>
+            <tr>
+                <td>Toplam: {{ numberOfStudents }}</td>
+                <ng-container *ngFor="let question of [].constructor(numberOfExamQuestions); let i = index">
+                    <td>Ort: {{ getQuestionAverage(i) | number:'1.2-2' }}</td>
+                </ng-container>
+                <td>Ort: {{ getTotalAverage() | number:'1.2-2' }}</td>
+            </tr>
+        </tbody>
+    </table>
